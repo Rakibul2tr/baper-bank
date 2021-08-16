@@ -1,6 +1,43 @@
-
 document.getElementById('deposetbtn').addEventListener('click',function(){
-    let deposetid = document.getElementById('diposetFiels');
+    gettotaltext('depoamou','diposetFiels');
+})
+
+document.getElementById('widrowtbtn').addEventListener('click',function(){
+    gettotaltext('witdrowamo','widrowField');
+})
+function gettotaltext(textfield,input){
+    // text field area 
+    let creantmonyid = document.getElementById(textfield)
+    let creantidtext = creantmonyid.innerText;
+    let creantidnumber = parseFloat(creantidtext)
+
+    ///input field area
+    let monyfield = document.getElementById(input);
+    let monyfieldvalue = monyfield.value;
+    let monyfieldvalueNumber = parseFloat(monyfieldvalue);
+    
+    let totaljog = creantidnumber + monyfieldvalueNumber;
+    creantmonyid.innerText = totaljog;
+    monyfield.value = '';
+
+    ///total bleance area
+        let totalblenceid= document.getElementById('totalamount');
+        let totalblenceAmount = totalblenceid.innerText;
+        if(textfield =='depoamou'&& input== 'diposetFiels'){
+        const totalblencejogholo = parseFloat(totalblenceAmount) + parseFloat(monyfieldvalue);
+        totalblenceid.innerText = totalblencejogholo;
+        }
+        else{
+        const totalblencejogholo = parseFloat(totalblenceAmount) - parseFloat(monyfieldvalue);
+        totalblenceid.innerText = totalblencejogholo;//total  dive pathano holo
+        }
+        ///total bleance area end
+    return totaljog;
+}
+
+ /*
+ document.getElementById('deposetbtn').addEventListener('click',function(){
+   let deposetid = document.getElementById('diposetFiels');
    let deposetnewvalue = deposetid.value;
 
    //crrent diposet===================
@@ -19,9 +56,11 @@ document.getElementById('deposetbtn').addEventListener('click',function(){
  const totalblencejogholo = parseFloat(totalblenceAmount) + parseFloat(deposetnewvalue);
 
  totalblenceid.innerText = totalblencejogholo;//total  dive pathano holo
+ 
   })
-
+*/
   ////================ widrow section code=================================================
+  /*
   document.getElementById('widrowtbtn').addEventListener('click',function(){
     let widrowfild = document.getElementById('widrowField');
     let widrowValue = widrowfild.value;
@@ -44,3 +83,4 @@ document.getElementById('deposetbtn').addEventListener('click',function(){
 
     totalblenceid.innerText = totalblencebiyog;//total  dive pathano holo
 })
+*/
